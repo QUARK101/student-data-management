@@ -385,3 +385,29 @@ sistem-informasi-mahasiswa/
 
 Proyek ini dibuat untuk keperluan akademik — UTS Mata Kuliah Pemrograman
 Web Fullstack, Universitas PGRI Madiun.
+
+---
+
+## Review & Rekomendasi Pengembangan
+
+**REVIEW BY :**
+* **NAMA** = MUHAMMAD HAFIZ FALAH
+* **NIM** = 2305101120
+
+Berikut adalah rekomendasi singkat langkah pengembangan proyek **SIDMA** ke depan:
+
+1. **Keamanan & Autentikasi**
+   * Tambahkan sistem login admin (menggunakan **Laravel Breeze**).
+   * Batasi hak akses agar tidak semua orang bisa mengubah/menghapus data.
+
+2. **Peningkatan Fitur**
+   * **Upload Foto**: Tambahkan fitur unggah foto profil mahasiswa.
+   * **Ekspor/Impor**: Fitur unduh data mahasiswa ke format Excel/PDF dan unggah data massal dari Excel.
+
+3. **Optimasi Kode & API**
+   * **Form Request**: Rapikan validasi input agar terpisah dari controller.
+   * **API CRUD Lengkap**: Lengkapi endpoint API (tambah, edit, hapus) dan amankan menggunakan **Laravel Sanctum**.
+
+4. **Kesiapan Produksi (Production)**
+   * Ganti database SQLite ke **PostgreSQL** atau **MySQL** jika ingin digunakan secara nyata oleh banyak pengguna.
+   * Tambahkan **Automated Testing** untuk memastikan fitur tidak rusak saat ada pembaruan kode.
