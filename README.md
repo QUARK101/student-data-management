@@ -411,3 +411,11 @@ Berikut adalah rekomendasi singkat langkah pengembangan proyek **SIDMA** ke depa
 4. **Kesiapan Produksi (Production)**
    * Ganti database SQLite ke **PostgreSQL** atau **MySQL** jika ingin digunakan secara nyata oleh banyak pengguna.
    * Tambahkan **Automated Testing** untuk memastikan fitur tidak rusak saat ada pembaruan kode.
+
+**REVIEW BY :**
+* **NAMA** = SHABILLA BERLIANA HARYONO
+* **NIM** = 2305101149
+
+Saran untuk proyek ini yang dapat dikembangkan ke depannya:
+1. Tambahkan fitur fakultas sehingga setiap prodi dapat dikelompokkan pada fakultas tertentu.
+2. Tambahkan fitur filter untuk fakultas juga agar tidak tercapur.
