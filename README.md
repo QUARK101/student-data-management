@@ -411,3 +411,23 @@ Berikut adalah rekomendasi singkat langkah pengembangan proyek **SIDMA** ke depa
 4. **Kesiapan Produksi (Production)**
    * Ganti database SQLite ke **PostgreSQL** atau **MySQL** jika ingin digunakan secara nyata oleh banyak pengguna.
    * Tambahkan **Automated Testing** untuk memastikan fitur tidak rusak saat ada pembaruan kode.
+
+---
+
+## Review Pembaruan Proyek
+
+**REVIEW BY :**
+* **NAMA** = SALMA NUR RAHMAWATI
+* **NIM** = 2305101006
+
+Berikut adalah review singkat mengenai pembaruan (*updates*) terbaru pada proyek **SIDMA**:
+
+1. **Kompatibilitas Versi PHP (`composer.json`)**
+   * Penyesuaian versi PHP minimum dari `^8.3` menjadi `^8.2` agar proyek lebih fleksibel dijalankan pada berbagai versi PHP lokal.
+   * Penambahan konfigurasi `"platform-check": false` untuk menghindari kegagalan deteksi versi platform saat server dijalankan.
+
+2. **Sinkronisasi Nama Paket (`package-lock.json`)**
+   * Mengubah nama proyek dari `"sistem-informasi-mahasiswa"` di `package-lock.json` menjadi `"student-data-management"` agar seragam dengan nama repositori.
+
+3. **Dokumentasi & Usulan Rencana Pengembangan (`README.md`)**
+   * Penambahan catatan evaluasi dan rekomendasi arsitektur ke depan (keamanan, database, dsb.) oleh pengembang lain.
