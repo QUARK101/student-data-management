@@ -411,3 +411,49 @@ Berikut adalah rekomendasi singkat langkah pengembangan proyek **SIDMA** ke depa
 4. **Kesiapan Produksi (Production)**
    * Ganti database SQLite ke **PostgreSQL** atau **MySQL** jika ingin digunakan secara nyata oleh banyak pengguna.
    * Tambahkan **Automated Testing** untuk memastikan fitur tidak rusak saat ada pembaruan kode.
+
+---
+
+## Review & Analisis Proyek (Update)
+
+**REVIEW BY :**
+* **NAMA** = MOHAMMAD IMAM TOHARI
+* **NIM** = 2305101123
+
+Berikut adalah review singkat update untuk proyek **SIDMA** ini:
+
+### 1. Ringkasan Proyek
+Proyek ini bernama **SIDMA** (Sistem Informasi Data Mahasiswa), sebuah sistem informasi berbasis web yang dikembangkan sebagai proyek UTS untuk mata kuliah **Pemrograman Web Fullstack**. Keterangan lengkap proyek dapat dibaca pada berkas [README.md](file:///d:/uapwf/student-data-management/README.md).
+
+### 2. Evaluasi Tech Stack & Arsitektur
+Proyek ini mengadopsi standar pengembangan web modern yang sangat solid:
+*   **Backend**: **Laravel 13** (PHP 8.3) dengan arsitektur **MVC (Model-View-Controller)**.
+*   **Database**: **SQLite** (lokal dan sangat praktis untuk keperluan pengembangan/demonstrasi).
+*   **Frontend**: UI premium menggunakan **Bootstrap 5.3 (CDN)** dikombinasikan dengan **Tailwind CSS v4** melalui **Vite 6** sebagai asset bundler. Ditunjang oleh **Font Awesome 6.4** untuk ikon serta **SweetAlert2** untuk notifikasi interaktif.
+*   **API Service**: Mendukung REST API yang mengembalikan format JSON terstandardisasi menggunakan Eloquent API Resource.
+
+### 3. Analisis Struktur Kode & Fungsionalitas
+*   **Database & Model Relasional**:
+    *   Tabel `program_studi` mencakup kolom `nama`, `jenjang` (S1/D3/D4), dan `fakultas`.
+    *   Tabel `mahasiswa` terhubung dengan relasi foreign key `program_studi_id`.
+    *   Model `Mahasiswa` mendefinisikan relasi `belongsTo` ke `ProgramStudi` dan menyertakan *custom accessor* `getStatusBadgeColorAttribute` untuk menentukan warna badge status (Aktif, Cuti, Lulus, Keluar) secara dinamis.
+    *   Model `ProgramStudi` mendefinisikan relasi `hasMany` ke `Mahasiswa`.
+*   **Controller & Logika Bisnis**:
+    *   **Dashboard**: Diatur oleh `DashboardController`, menyajikan data statistik agregat jumlah mahasiswa per-status, statistik per-program studi menggunakan `withCount()`, serta 5 data mahasiswa terbaru.
+    *   **CRUD Mahasiswa**: `MahasiswaController` mengelola pendaftaran, pembaruan, dan pencarian mahasiswa berdasarkan nama/NIM dengan filter program studi dan status. Proses input sudah divalidasi dengan aman (termasuk validasi keunikan NIM/Email saat *update*).
+    *   **CRUD Program Studi**: `ProgramStudiController` memiliki fitur proteksi keamanan: Program Studi tidak dapat dihapus jika masih ada mahasiswa aktif yang terdaftar di dalamnya.
+*   **Routing & REST API**:
+    *   **Web Routes**: Didefinisikan di `routes/web.php` menggunakan `Route::resource` yang bersih untuk manajemen mahasiswa dan program studi.
+    *   **API Routes**: Didefinisikan di `routes/api.php` menggunakan `MahasiswaApiController` dan API Resource `MahasiswaResource` untuk memformat respon JSON secara terstruktur.
+*   **Desain Interface (Layout)**:
+    *   Template utama diatur di `resources/views/layouts/app.blade.php` dengan desain sidebar gelap (*dark sidebar*) modern, transisi halus, dan responsif.
+
+### 4. Kelebihan Utama Proyek Ini
+1.  **Penerapan Eager Loading**: Penggunaan `with('programStudi')` di controller meminimalisir masalah query $N+1$ pada database.
+2.  **Validasi Kuat**: Mencegah redundansi data NIM dan Email baik pada proses *create* maupun *update*.
+3.  **UI & UX Menarik**: Penggunaan CSS variabel untuk skema warna, badge status dinamis, dan integrasi SweetAlert2 memberikan pengalaman pengguna (UX) yang sangat baik.
+
+### 5. Saran/Rekomendasi Pengembangan
+*   **Form Request Validation**: Memisahkan logika validasi dari controller ke berkas Form Request khusus (misal: `StoreMahasiswaRequest`).
+*   **API Security**: Menambahkan sistem autentikasi (seperti Laravel Sanctum) jika REST API akan diakses publik secara luas.
+*   **Autentikasi Pengguna**: Menambahkan sistem login admin menggunakan Laravel Breeze untuk menjaga hak akses data.
