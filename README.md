@@ -411,3 +411,12 @@ Berikut adalah rekomendasi singkat langkah pengembangan proyek **SIDMA** ke depa
 4. **Kesiapan Produksi (Production)**
    * Ganti database SQLite ke **PostgreSQL** atau **MySQL** jika ingin digunakan secara nyata oleh banyak pengguna.
    * Tambahkan **Automated Testing** untuk memastikan fitur tidak rusak saat ada pembaruan kode.
+
+---
+
+## Review
+By : Iqbal Safri Jalla (2505101060L)
+
+#### Review singkat penambahan fitur aplikasi
+- Aksesibilitas : Secara keseluruhan fungsi dan fitur aplikasi sudah lengkap dan user friendly atau mudah digunakan.
+- Rekomendasi : Tambahkan fitur Backup dan Restore data mahasiswa bisa dalam bentuk Export/Import data template file Excel untuk meningkatkan keamanan data, Tambahkan role level user login sebagai Admin/Operator dan session login aplikasi. Optimasi tampilan web Responsive supaya mendukung di berbagai resolusi tamplian device yang berbeda.
